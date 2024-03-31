@@ -9,6 +9,35 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      countries: {
+        Row: {
+          author: string | null
+          created_at: string
+          id: number
+          name: string | null
+        }
+        Insert: {
+          author?: string | null
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Update: {
+          author?: string | null
+          created_at?: string
+          id?: number
+          name?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_countries_author_fkey"
+            columns: ["author"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
