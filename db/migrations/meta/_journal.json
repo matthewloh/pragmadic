@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1712070251898,
+      "tag": "0000_many_scourge",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1712070304278,
+      "tag": "0001_colossal_thor",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1712083213778,
+      "tag": "0002_exotic_smiling_tiger",
+      "breakpoints": true
+    }
+  ]
+}

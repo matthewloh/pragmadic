@@ -9,60 +9,31 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      countries: {
+      user: {
         Row: {
-          author: string | null
-          created_at: string
-          id: number
-          name: string | null
-        }
-        Insert: {
-          author?: string | null
-          created_at?: string
-          id?: number
-          name?: string | null
-        }
-        Update: {
-          author?: string | null
-          created_at?: string
-          id?: number
-          name?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "public_countries_author_fkey"
-            columns: ["author"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      profiles: {
-        Row: {
-          created_at: string
+          created_at: string | null
           display_name: string | null
-          email: string
+          email: string | null
           id: string
           image_url: string | null
         }
         Insert: {
-          created_at?: string
+          created_at?: string | null
           display_name?: string | null
-          email: string
+          email?: string | null
           id: string
           image_url?: string | null
         }
         Update: {
-          created_at?: string
+          created_at?: string | null
           display_name?: string | null
-          email?: string
+          email?: string | null
           id?: string
           image_url?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "public_profiles_id_fkey"
+            foreignKeyName: "public_user_id_fkey"
             columns: ["id"]
             isOneToOne: true
             referencedRelation: "users"

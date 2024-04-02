@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <header className="relative z-10 flex justify-between items-center bg-gray-100 dark:bg-gray-900 py-2">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container flex items-center justify-between w-full bg-red-500">
         <Link
           href={"/"}
           className="flex items-center gap-2 text-xl hover:underline font-mono"

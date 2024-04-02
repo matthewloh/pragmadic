@@ -17,15 +17,16 @@ export default function useUser() {
       const supabase = supabaseBrowser();
       const { data } = await supabase.auth.getSession();
       if (data.session?.user) {
-        // fetch user information from profiles table
+        // fetch user information profile
         const { data: user } = await supabase
-          .from("profiles")
+          .from("user")
           .select("*")
           .eq("id", data.session.user.id)
           .single();
+
         return user;
       }
-      return initUser; // else return empty user object
+      return initUser;
     },
   });
 }

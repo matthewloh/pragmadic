@@ -54,13 +54,10 @@ export async function middleware(request: NextRequest) {
       },
     }
   );
-
-  const { data } = await supabase.auth.getSession();
-
+  const { data } = await supabase.auth.getUser();
   const url = new URL(request.url);
-
-  if (data.session) {
-    if (url.pathname == "/auth") {
+  if (data.user) {
+    if (url.pathname === "/auth") {
       return NextResponse.redirect(new URL("/", request.url));
     }
     return response;
