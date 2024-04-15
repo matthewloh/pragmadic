@@ -14,16 +14,16 @@ export default async function Home() {
   //   .select({})
   //   .from(user)
   //   .where(eq(user.email, "matthewloh256@gmail.com"));
-  // const data =
-  //   (await db?.query.user.findFirst({
-  //     columns: {
-  //       display_name: true,
-  //       email: true,
-  //       id: true,
-  //       image_url: true,
-  //     },
-  //     where: eq(user.email, email),
-  //   })) ?? undefined;
+  const data =
+    (await db?.query.user.findFirst({
+      columns: {
+        display_name: true,
+        email: true,
+        id: true,
+        image_url: true,
+      },
+      where: eq(user.email, email),
+    })) ?? undefined;
   return (
     <>
       <div className="divide-y-4 flex flex-col">
@@ -32,7 +32,7 @@ export default async function Home() {
           <Link href="/dashboard">/dashboard</Link>
           <Link href="/profile">/profile</Link>
         </div>
-        {/* {data && (
+        {data && (
           <div className="flex flex-col gap-4  my-6 bg-secondary">
             <h1>{`Profile of ${data.display_name?.toUpperCase()}`}</h1>
             <h2>{`Email: ${data.email}`}</h2>
@@ -45,7 +45,7 @@ export default async function Home() {
               className="rounded-full animate-spin ring-2 cursor-pointer mr-2 self-center size-max"
             />
           </div>
-        )} */}
+        )}
       </div>
     </>
   );
