@@ -24,7 +24,7 @@ export default function Navbar() {
             height="50"
             alt="Dev Finder Logo"
           />
-          RagTag
+          PRAGmadic 
         </Link>
         <nav className="flex gap-4">
           {isLoggedIn && (

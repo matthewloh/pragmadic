@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
 import useUser from "../hook/useUser";
+import { db } from "@/db";
 
 export default function Profile() {
   const { isFetching, data: userData } = useUser();
+  console.log(userData);
   return (
     <div>
       {/*

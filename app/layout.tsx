@@ -9,7 +9,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RAGTag",
+  title: "PRAGmadic",
   description: "Form a motley crew of developers and execute your vision.",
 };
 
