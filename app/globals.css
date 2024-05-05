@@ -49,15 +49,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 .glowBox {
   position: absolute;
   top: calc(50% - 50px);

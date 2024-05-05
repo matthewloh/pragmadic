@@ -24,6 +24,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        logo: "#FBF4E1",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -53,6 +54,47 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      // colors: {
+      //   primary: "hsl(40, 94%, 67%)",
+
+      //   "primary-content": "hsl(40, 93%, 17%)",
+
+      //   "primary-dark": "hsl(40, 94%, 57%)",
+
+      //   "primary-light": "hsl(40, 95%, 77%)",
+
+      //   secondary: "hsl(220, 94%, 67%)",
+
+      //   "secondary-content": "hsl(220, 93%, 17%)",
+
+      //   "secondary-dark": "hsl(220, 94%, 57%)",
+
+      //   "secondary-light": "hsl(220, 95%, 77%)",
+
+      //   background: "hsl(30, 7%, 94%)",
+
+      //   foreground: "hsl(0, 0%, 98%)",
+
+      //   border: "hsl(36, 8%, 88%)",
+
+      //   copy: "hsl(40, 8%, 15%)",
+
+      //   "copy-light": "hsl(41, 8%, 40%)",
+
+      //   "copy-lighter": "hsl(39, 7%, 55%)",
+
+      //   success: "hsl(120, 94%, 67%)",
+
+      //   warning: "hsl(60, 94%, 67%)",
+
+      //   error: "hsl(0, 94%, 67%)",
+
+      //   "success-content": "hsl(120, 93%, 17%)",
+
+      //   "warning-content": "hsl(60, 93%, 17%)",
+
+      //   "error-content": "hsl(0, 93%, 17%)",
+      // },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

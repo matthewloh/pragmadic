@@ -6,6 +6,8 @@ import Image from "next/image";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import useUser from "@/app/hook/useUser";
 import { NotebookPenIcon, ScanSearchIcon } from "lucide-react";
+import PragmadicLogo from "./pragmadic-logo";
+
 export default function Navbar() {
   const supabase = supabaseBrowser();
   const { isFetching, data } = useUser();
@@ -13,18 +15,19 @@ export default function Navbar() {
 
   return (
     <header className="relative z-10 flex justify-between items-center bg-gray-100 dark:bg-gray-900 py-2">
-      <div className="container flex items-center justify-between w-full bg-red-500">
+      <div className="container m-auto flex items-center justify-between w-full">
         <Link
           href={"/"}
           className="flex items-center gap-2 text-xl hover:underline font-mono"
         >
-          <Image
+          <PragmadicLogo />
+          {/* <Image
             src={"/icon.png"}
             width="50"
             height="50"
-            alt="Dev Finder Logo"
+            alt="PRAGMadic Logo"
           />
-          PRAGmadic 
+          PRAGmadic */}
         </Link>
         <nav className="flex gap-4">
           {isLoggedIn && (

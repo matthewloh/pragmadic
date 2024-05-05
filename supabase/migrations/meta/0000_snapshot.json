@@ -1,5 +1,5 @@
 {
-  "id": "a3702c16-3067-48ee-8aea-e3dd398b642f",
+  "id": "58427583-4759-41ed-80ff-31439a822cd4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -20,6 +20,106 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
+    "balls": {
+      "name": "balls",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "balls_user_id_user_id_fk": {
+          "name": "balls_user_id_user_id_fk",
+          "tableFrom": "balls",
+          "tableTo": "user",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "derantau_hub": {
+      "name": "derantau_hub",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hub_id": {
+          "name": "hub_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "derantau_hub_hub_id_user_id_fk": {
+          "name": "derantau_hub_hub_id_user_id_fk",
+          "tableFrom": "derantau_hub",
+          "tableTo": "user",
+          "columnsFrom": [
+            "hub_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "user": {
       "name": "user",
       "schema": "",
@@ -35,7 +135,8 @@
           "name": "id",
           "type": "uuid",
           "primaryKey": true,
-          "notNull": true
+          "notNull": true,
+          "default": "gen_random_uuid()"
         },
         "email": {
           "name": "email",
