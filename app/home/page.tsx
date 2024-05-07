@@ -5,15 +5,13 @@ export default async function PragmadicHome() {
   return (
     <>
       <div>
-        {
-          data &&
-            data.map((item) => (
-              <div key={item.id}>
-                <h1>{item.name}</h1>
-                <p>{item.description}</p>
-              </div>
-            )) // Add closing parenthesis here
-        }
+        {data &&
+          data.map((item) => (
+            <div key={item.id}>
+              <h1>{item.name}</h1>
+              <p>{item.description}</p>
+            </div>
+          ))}
       </div>
       ;
     </>
