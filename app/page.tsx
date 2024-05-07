@@ -26,8 +26,12 @@ export default async function Home() {
       <div className="divide-y-4 flex flex-col">
         <div className="bg-inherit dark:bg-inherit p-6 flex flex-col text-center space-y-2">
           <p>{`${email}`}</p>
-          <Link href="/dashboard">/dashboard</Link>
-          <Link href="/profile">/profile</Link>
+          <Link className={`font-sans`} href="/dashboard">
+            /dashboard
+          </Link>
+          <Link className={`font-inter`} href="/profile">
+            /profile
+          </Link>
           <Link href="/derantau-nomad/apply">
             page for de rantau nomad applicants
           </Link>
