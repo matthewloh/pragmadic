@@ -23,8 +23,8 @@ export default async function Home() {
     })) ?? undefined;
   return (
     <>
-      <div className="divide-y-4 flex flex-col">
-        <div className="bg-inherit dark:bg-inherit p-6 flex flex-col text-center space-y-2">
+      <div className="flex flex-col divide-y-4">
+        <div className="flex flex-col space-y-2 bg-inherit p-6 text-center dark:bg-inherit">
           <p>{`${email}`}</p>
           <Link className={`font-sans`} href="/dashboard">
             /dashboard
@@ -54,7 +54,7 @@ export default async function Home() {
                 width="40"
                 height="40"
                 alt="user profile picture"
-                className="rounded-full animate-spin ring-2 cursor-pointer mr-2 self-center size-max"
+                className="mr-2 size-max animate-spin cursor-pointer self-center rounded-full ring-2"
               />
             </div>
           )}
