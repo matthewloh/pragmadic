@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function PragmadicLogo() {
   return (
-    <div className="p-2 bg-accent bg-logo dark:bg-logo rounded-md flex justify-center items-center gap-2 m-auto">
+    <div className="m-auto flex items-center justify-center gap-2 rounded-md bg-accent bg-logo p-2 dark:bg-logo">
       <Image
         src="/pragmadicicon.svg"
         width="36"
@@ -14,10 +14,10 @@ export default function PragmadicLogo() {
         alt="PRAGmadic Logo"
       />
       <div className={`${inter.className}`}>
-        <span className="text-sky-500 text-2xl font-bold font-sans uppercase leading-6">
+        <span className="font-sans text-2xl font-bold uppercase leading-6 text-sky-500">
           PRAG
         </span>
-        <span className="text-amber-300 text-2xl font-bold font-sans uppercase leading-6">
+        <span className="font-sans text-2xl font-bold uppercase leading-6 text-amber-300">
           MADIC
         </span>
       </div>

@@ -2,9 +2,10 @@ import { user } from "@/db/schema";
 import { db } from "@/db";
 import Link from "next/link";
 import { eq } from "drizzle-orm";
-import { supabaseBrowser } from "@/lib/supabase/browser";
+import { MotionProps, motion } from "framer-motion";
 import { supabaseServer } from "@/lib/supabase/server";
 import Image from "next/image";
+import BentoHome from "@/components/BentoHome";
 
 export default async function Home() {
   const supabase = supabaseServer();
@@ -22,9 +23,10 @@ export default async function Home() {
       where: eq(user.email, email),
     })) ?? undefined;
   return (
-    <>
+    <div className="bg-red-200 dark:bg-inherit">
+      <BentoHome />
       <div className="flex flex-col divide-y-4">
-        <div className="flex flex-col space-y-2 bg-inherit p-6 text-center dark:bg-inherit">
+        {/* <div className="flex flex-col space-y-2 bg-inherit p-6 text-center dark:bg-inherit">
           <p>{`${email}`}</p>
           <Link className={`font-sans`} href="/dashboard">
             /dashboard
@@ -58,8 +60,8 @@ export default async function Home() {
               />
             </div>
           )}
-        </div>
+        </div> */}
       </div>
-    </>
+    </div>
   );
 }

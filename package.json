@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:push": "drizzle-kit push:pg --config=drizzle.config.ts",
-    "db:pull": "drizzle-kit introspect:pg --config=drizzle.config.ts",
+    "db:push": "drizzle-kit push --config=drizzle.config.ts",
+    "db:pull": "drizzle-kit introspect --config=drizzle.config.ts",
     "db:studio": "drizzle-kit studio",
-    "db:generate": "drizzle-kit generate:pg --schema ./db/schema.ts --out=./supabase/migrations"
+    "db:generate": "drizzle-kit generate --schema ./db/schema.ts --out=./supabase/migrations --dialect=postgresql"
   },
   "dependencies": {
     "@prisma/client": "^5.11.0",
@@ -29,10 +29,12 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "drizzle-orm": "^0.30.10",
+    "framer-motion": "^11.2.6",
     "geist": "^1.3.0",
     "lucide-react": "^0.363.0",
     "next": "^14.2.1",
     "next-themes": "^0.3.0",
+    "nextjs-toploader": "^1.6.12",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
     "react": "^18",

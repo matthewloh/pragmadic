@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import QueryProvider from "@/components/query-provider";
+import NextTopLoader from "nextjs-toploader";
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
 
@@ -30,9 +30,8 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <div className="container max-w-6xl min-h-screen mx-auto space-y-10">
-            {children}
-          </div>
+          <NextTopLoader />
+          <div className="h-full">{children}</div>
         </Providers>
       </body>
     </html>

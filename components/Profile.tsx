@@ -1,6 +1,5 @@
 "use client";
 import useUser from "@/app/hook/useUser";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +15,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "./ui/button";
-import { ModeToggle } from "./mode-toggle";
 
 export default function Profile() {
   const { isFetching, data } = useUser();
@@ -49,22 +47,30 @@ export default function Profile() {
               <DropdownMenuTrigger asChild>
                 <Button variant={"link"}>
                   {data?.image_url ? (
-                    <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full right-2">
+                    <div className="relative right-2 flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
                       <Image
                         src={`${data.image_url || ""}`}
                         alt={`Profile picture of ${data?.display_name || ""}`}
                         width={40}
                         height={40}
-                        className="rounded-full animate-spin ring-2 cursor-pointer mr-2"
+                        className="mr-2 cursor-pointer rounded-full ring-2"
                         onClick={handleLogout}
                       />
                     </div>
                   ) : (
-                    <div className="h-[50px] w-[50px] flex items-center justify-center ring-2 rounded-full text-2xl font-bold cursor-pointer">
+                    <div className="flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full text-2xl font-bold ring-2">
                       <h1>{data!.email}</h1>
                     </div>
                   )}
-                  <div className="">Logged in as: {data.display_name}</div>
+                  <div className="font-sans">
+                    Logged in as: {data.display_name}
+                  </div>
+                  <div className="font-inter">
+                    Logged in as: {data.display_name}
+                  </div>
+                  <div className="font-overused">
+                    Logged in as: {data.display_name}
+                  </div>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -81,7 +87,6 @@ export default function Profile() {
                 <DropdownMenuItem asChild className=""></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <ModeToggle />
           </div>
         )}
       </div>

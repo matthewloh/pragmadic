@@ -1,43 +1,29 @@
-"use client";
-import React from "react";
 import Profile from "./Profile";
 import Link from "next/link";
-import Image from "next/image";
-import { supabaseBrowser } from "@/lib/supabase/browser";
-import useUser from "@/app/hook/useUser";
-import { NotebookPenIcon, ScanSearchIcon } from "lucide-react";
 import PragmadicLogo from "./pragmadic-logo";
+import { ModeToggle } from "./mode-toggle";
+import { supabaseServer } from "@/lib/supabase/server";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "./ui/button";
 
-export default function Navbar() {
-  const supabase = supabaseBrowser();
-  const { isFetching, data } = useUser();
-  const isLoggedIn = !!data?.id;
-
+export default async function Navbar() {
+  const supabase = supabaseServer();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   return (
-    <header className="relative z-10 flex justify-between items-center bg-gray-100 dark:bg-gray-900 py-2">
-      <div className="container m-auto flex items-center justify-between w-full">
+    <header className="relative z-10 flex items-center justify-between bg-gray-100 py-2 dark:bg-gray-900">
+      <div className="container m-auto flex w-full items-center justify-between">
         <Link
           href={"/"}
-          className="flex items-center gap-2 text-xl hover:underline font-mono"
+          className="flex items-center gap-2 font-mono text-xl hover:underline"
         >
           <PragmadicLogo />
-          {/* <Image
-            src={"/icon.png"}
-            width="50"
-            height="50"
-            alt="PRAGMadic Logo"
-          />
-          PRAGmadic */}
         </Link>
-        <nav className="flex gap-4">
-          {isLoggedIn && (
-            <>
-              <ScanSearchIcon />
-              <NotebookPenIcon />
-            </>
-          )}
-        </nav>
-        <Profile />
+        <div className="flex items-center gap-4">
+          <Profile />
+          <ModeToggle />
+        </div>
       </div>
     </header>
   );
