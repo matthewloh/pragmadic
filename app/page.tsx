@@ -23,7 +23,7 @@ export default async function Home() {
       where: eq(user.email, email),
     })) ?? undefined;
   return (
-    <div className="bg-red-200 dark:bg-inherit">
+    <div className="bg-secondary">
       <BentoHome />
       <div className="flex flex-col divide-y-4">
         {/* <div className="flex flex-col space-y-2 bg-inherit p-6 text-center dark:bg-inherit">

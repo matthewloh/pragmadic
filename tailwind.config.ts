@@ -21,6 +21,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         inter: ["var(--font-inter)"],
+        solway: ["var(--font-solway)"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -28,7 +29,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        logo: "#FBF4E1",
+        logo: "#FFFFFF",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

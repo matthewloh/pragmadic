@@ -54,13 +54,9 @@
         "balls_user_id_user_id_fk": {
           "name": "balls_user_id_user_id_fk",
           "tableFrom": "balls",
-          "columnsFrom": [
-            "user_id"
-          ],
+          "columnsFrom": ["user_id"],
           "tableTo": "user",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         }
@@ -104,13 +100,9 @@
         "derantau_hub_hub_id_user_id_fk": {
           "name": "derantau_hub_hub_id_user_id_fk",
           "tableFrom": "derantau_hub",
-          "columnsFrom": [
-            "hub_id"
-          ],
+          "columnsFrom": ["hub_id"],
           "tableTo": "user",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "no action"
         }
@@ -160,14 +152,10 @@
         "user_id_users_id_fk": {
           "name": "user_id_users_id_fk",
           "tableFrom": "user",
-          "columnsFrom": [
-            "id"
-          ],
+          "columnsFrom": ["id"],
           "tableTo": "users",
           "schemaTo": "auth",
-          "columnsTo": [
-            "id"
-          ],
+          "columnsTo": ["id"],
           "onUpdate": "no action",
           "onDelete": "cascade"
         }

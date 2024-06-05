@@ -20,17 +20,17 @@ export default function Page() {
     });
   };
   return (
-    <div className="flex items-center justify-center w-full h-screen">
-      <div className="w-96 rounded-3xl border p-5 space-y-5 relative bg-slate-900">
+    <div className="flex h-screen w-full items-center justify-center">
+      <div className="relative w-96 space-y-5 rounded-3xl border bg-slate-900 p-5">
         <div className="flex items-center gap-2">
           <KeyRound />
-          <h1 className="text-2xl font-bold ">Next + Supabase</h1>
+          <h1 className="text-2xl font-bold">Next + Supabase</h1>
         </div>
         <p className="text-sm text-gray-300">Register/Sign In 🤥</p>
 
         <div className="flex flex-col gap-4">
           <Button
-            className="w-full flex items-center gap-2"
+            className="flex w-full items-center gap-2"
             variant={"outline"}
             onClick={() => handleLoginWithOAuth("github")}
           >
@@ -38,7 +38,7 @@ export default function Page() {
             GitHub
           </Button>
           <Button
-            className="w-full flex items-center gap-2"
+            className="flex w-full items-center gap-2"
             variant={"outline"}
             onClick={() => handleLoginWithOAuth("google")}
           >

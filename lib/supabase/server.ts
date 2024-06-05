@@ -14,6 +14,6 @@ export function supabaseServer() {
           return cookieStore.get(name)?.value;
         },
       },
-    }
+    },
   );
 }

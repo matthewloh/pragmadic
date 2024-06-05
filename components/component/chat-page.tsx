@@ -33,7 +33,7 @@ import { Badge } from "@/components/ui/badge";
 export function ChatPage() {
   return (
     <div className="grid h-screen w-full pl-[56px]">
-      <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
+      <aside className="inset-y fixed left-0 z-20 flex h-full flex-col border-r">
         <div className="border-b p-2">
           <Button aria-label="Home" size="icon" variant="outline">
             <TriangleIcon className="size-5 fill-foreground" />

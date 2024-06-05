@@ -16,7 +16,7 @@ export default function QueryProvider({
             staleTime: Infinity,
           },
         },
-      })
+      }),
   );
   return (
     <QueryClientProvider client={queryClient}>

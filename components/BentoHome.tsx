@@ -8,10 +8,12 @@ import Image from "next/image";
 import { FaGithub, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 import {
+  ChefHatIcon,
   ClipboardPen,
   LayoutDashboard,
   Mail,
   MapPin,
+  MessageCircle,
   PersonStanding,
 } from "lucide-react";
 
@@ -55,24 +57,18 @@ const WelcomeBlock = () => {
     return <div>Loading...</div>;
   }
   return (
-    <Block
-      className="col-span-10 row-span-8 md:col-span-6"
-      whileHover={{
-        rotate: "2.5deg",
-        scale: 1.2,
-      }}
-    >
+    <Block className="col-span-10 row-span-8 md:col-span-6" whileHover={{}}>
       <div className="flex flex-col items-start justify-start">
         <Image
           src={data?.image_url || ""}
           width={30}
           height={30}
           alt="Profile picture"
-          className="mb-4 animate-spin cursor-pointer self-center rounded-full ring-2 ring-zinc-700 "
+          className="mb-4 animate-spin cursor-pointer self-center rounded-full ring-2 ring-zinc-700"
         />
         <h1 className="mb-2 font-inter text-4xl font-medium leading-tight">
           Welcome to PRAGmadic,{" "}
-          <span className="overflow-auto font-sans text-zinc-300">
+          <span className="overflow-auto font-sans text-zinc-300 underline underline-offset-auto">
             {data?.display_name ? `${data.display_name}` : ""}
           </span>
         </h1>
@@ -142,12 +138,13 @@ const SocialsBlock = () => (
       }}
       className="col-span-6 bg-zinc-50 md:col-span-3"
     >
-      <a
-        href="/derantau-partner/apply"
-        className="grid h-full place-content-center text-3xl text-black"
+      <Link
+        href="/chat"
+        className="grid h-full place-content-center text-3xl text-white"
       >
-        <FaTiktok />
-      </a>
+        <MessageCircle className="mx-auto size-8 text-black" />
+        <h1 className="text-center text-xl font-semibold text-black">Chat</h1>
+      </Link>
     </Block>
     <Block
       whileHover={{

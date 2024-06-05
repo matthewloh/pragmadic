@@ -62,13 +62,10 @@ export default function Profile() {
                       <h1>{data!.email}</h1>
                     </div>
                   )}
-                  <div className="font-sans">
+                  {/* <div className="font-sans">
                     Logged in as: {data.display_name}
-                  </div>
+                  </div> */}
                   <div className="font-inter">
-                    Logged in as: {data.display_name}
-                  </div>
-                  <div className="font-overused">
                     Logged in as: {data.display_name}
                   </div>
                 </Button>

@@ -1,1 +1,7 @@
-{"assetsPath":"public/","componentsPath":"components","framework":"react","language":"typescript","styling":"tailwind"}
+{
+  "assetsPath": "public/",
+  "componentsPath": "components",
+  "framework": "react",
+  "language": "typescript",
+  "styling": "tailwind"
+}
