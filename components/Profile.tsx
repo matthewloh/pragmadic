@@ -45,30 +45,28 @@ export default function Profile() {
           <div className="justify flex flex-row gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant={"link"}>
-                  {data?.image_url ? (
-                    <div className="relative right-2 flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                      <Image
-                        src={`${data.image_url || ""}`}
-                        alt={`Profile picture of ${data?.display_name || ""}`}
-                        width={40}
-                        height={40}
-                        className="mr-2 cursor-pointer rounded-full ring-2"
-                        onClick={handleLogout}
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full text-2xl font-bold ring-2">
-                      <h1>{data!.email}</h1>
-                    </div>
-                  )}
-                  {/* <div className="font-sans">
+                {data?.image_url ? (
+                  <div className="relative right-2 flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                    <Image
+                      src={`${data.image_url || ""}`}
+                      alt={`Profile picture of ${data?.display_name || ""}`}
+                      width={40}
+                      height={40}
+                      className="mr-2 cursor-pointer rounded-full ring-2"
+                      onClick={handleLogout}
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full text-2xl font-bold ring-2">
+                    <h1>{data!.email}</h1>
+                  </div>
+                )}
+                {/* <div className="font-sans">
                     Logged in as: {data.display_name}
                   </div> */}
-                  <div className="font-inter">
+                {/* <div className="font-inter">
                     Logged in as: {data.display_name}
-                  </div>
-                </Button>
+                  </div> */}
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem onClick={handleLogout}>

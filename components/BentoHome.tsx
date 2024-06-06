@@ -207,7 +207,7 @@ const EmailListBlock = () => (
 
 export default function BentoHome() {
   return (
-    <div className="container h-screen w-screen bg-zinc-900 p-12 text-zinc-50">
+    <div className="container h-screen w-screen bg-zinc-200 dark:bg-zinc-900 p-12 text-zinc-50">
       <motion.div
         initial="initial"
         animate="animate"
