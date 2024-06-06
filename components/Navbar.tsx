@@ -8,11 +8,8 @@ import { Button } from "./ui/button";
 
 export default async function Navbar() {
   const supabase = supabaseServer();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
   return (
-    <header className="relative z-10 flex items-center justify-between border-b-2 border-gray-200 bg-white py-2 dark:border-gray-700 dark:bg-gray-900">
+    <header className="sticky top-0 z-40 flex w-full items-center justify-center border-b-2 border-gray-200 bg-white py-2 backdrop-blur-2xl dark:border-gray-700 dark:bg-gray-900">
       <div className="container m-auto flex w-full items-center justify-between">
         <Link
           href={"/"}
@@ -21,8 +18,8 @@ export default async function Navbar() {
           <PragmadicLogo />
         </Link>
         <div className="flex items-center gap-4">
-          <Profile />
           <ModeToggle />
+          <Profile />
         </div>
       </div>
     </header>

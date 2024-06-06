@@ -38,7 +38,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <NextTopLoader />
-          <div className="h-full">{children}</div>
+          <div className="flex min-h-screen flex-col space-y-6">{children}</div>
         </Providers>
       </body>
     </html>

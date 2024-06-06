@@ -73,12 +73,12 @@ export default function Profile() {
                   <LogOutIcon className="mr-2" />
                   Sign Out
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
+                {/* <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => {}}>
                   <DeleteIcon className="mr-2" />
                   Delete Account
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
+                <DropdownMenuSeparator /> */}
                 <DropdownMenuItem asChild className=""></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

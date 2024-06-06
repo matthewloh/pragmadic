@@ -5,8 +5,15 @@ import { twMerge } from "tailwind-merge";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import useUser from "@/app/hook/useUser";
 import Image from "next/image";
-import { FaGithub, FaTiktok, FaTwitter, FaYoutube } from "react-icons/fa";
+import {
+  FaGithub,
+  FaPeopleArrows,
+  FaTiktok,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
 import {
   ChefHatIcon,
   ClipboardPen,
@@ -16,10 +23,33 @@ import {
   MessageCircle,
   PersonStanding,
 } from "lucide-react";
+import { Button } from "./ui/button";
 
 type BlockProps = {
   className?: string;
 } & MotionProps;
+
+export default function BentoHome() {
+  return (
+    <div className="mx-auto h-screen w-screen bg-zinc-200 py-6 text-zinc-50 dark:bg-zinc-900">
+      <motion.div
+        initial="initial"
+        animate="animate"
+        transition={{
+          staggerChildren: 0.05,
+        }}
+        className="mx-auto grid h-full max-w-7xl grid-flow-dense grid-cols-12 gap-4"
+      >
+        <WelcomeBlock />
+        <DashboardBlock />
+        <SocialsBlock />
+        <AboutBlock />
+        <LocationBlock />
+        <EmailListBlock />
+      </motion.div>
+    </div>
+  );
+}
 
 const Block = ({ className, ...rest }: BlockProps) => {
   return (
@@ -59,13 +89,15 @@ const WelcomeBlock = () => {
   return (
     <Block className="col-span-10 row-span-8 md:col-span-6" whileHover={{}}>
       <div className="flex flex-col items-start justify-start">
-        <Image
-          src={data?.image_url || ""}
-          width={30}
-          height={30}
-          alt="Profile picture"
-          className="mb-4 animate-spin cursor-pointer self-center rounded-full ring-2 ring-zinc-700"
-        />
+        {data?.id && (
+          <Image
+            src={data?.image_url || ""}
+            width={30}
+            height={30}
+            alt="Profile picture"
+            className="mb-4 animate-spin cursor-pointer self-center rounded-full ring-2 ring-zinc-700"
+          />
+        )}
         <h1 className="mb-2 font-inter text-4xl font-medium leading-tight">
           Welcome to PRAGmadic,{" "}
           <span className="overflow-auto font-sans text-zinc-300 underline underline-offset-auto">
@@ -153,12 +185,15 @@ const SocialsBlock = () => (
       }}
       className="col-span-6 bg-blue-500 md:col-span-3"
     >
-      <a
-        href="/derantau-partner/apply"
+      <Link
+        href="/community"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <FaTwitter />
-      </a>
+        <FaPeopleArrows className="mx-auto size-8 text-white" />
+        <h1 className="text-center text-xl font-semibold text-white">
+          Community
+        </h1>
+      </Link>
     </Block>
   </>
 );
@@ -166,11 +201,9 @@ const SocialsBlock = () => (
 const AboutBlock = () => (
   <Block className="col-span-12 text-3xl leading-snug">
     <p>
-      My passion is building cool stuff.{" "}
+      Work In Progress{" "}
       <span className="text-zinc-400">
-        I build primarily with React, Tailwind CSS, and Framer Motion. I love
-        this stack so much that I even built a website about it. I&apos;ve made
-        over a hundred videos on the subject across YouTube and TikTok.
+        <ChefHatIcon className="size-8" />
       </span>
     </p>
   </Block>
@@ -179,50 +212,28 @@ const AboutBlock = () => (
 const LocationBlock = () => (
   <Block className="col-span-12 flex flex-col items-center gap-4 md:col-span-3">
     <MapPin className="text-3xl" />
-    <p className="text-center text-lg text-zinc-400">Cyberspace</p>
+    <p className="text-center text-lg text-zinc-400">（；´д｀）ゞ 🇲🇾</p>
   </Block>
 );
 
 const EmailListBlock = () => (
   <Block className="col-span-12 md:col-span-9">
-    <p className="mb-3 text-lg">Join my mailing list</p>
+    <p className="mb-3 text-lg">Stay tuned for updates</p>
     <form
       onSubmit={(e) => e.preventDefault()}
       className="flex items-center gap-2"
     >
-      <input
+      <Input
         type="email"
         placeholder="Enter your email"
         className="w-full rounded border border-zinc-700 bg-zinc-800 px-3 py-1.5 transition-colors focus:border-red-300 focus:outline-0"
       />
-      <button
+      <Button
         type="submit"
         className="flex items-center gap-2 whitespace-nowrap rounded bg-zinc-50 px-3 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-300"
       >
-        <Mail /> Join the list
-      </button>
+        <Mail /> Subscribe
+      </Button>
     </form>
   </Block>
 );
-
-export default function BentoHome() {
-  return (
-    <div className="container h-screen w-screen bg-zinc-200 dark:bg-zinc-900 p-12 text-zinc-50">
-      <motion.div
-        initial="initial"
-        animate="animate"
-        transition={{
-          staggerChildren: 0.05,
-        }}
-        className="mx-auto grid h-full max-w-7xl grid-flow-dense grid-cols-12 gap-4"
-      >
-        <WelcomeBlock />
-        <DashboardBlock />
-        <SocialsBlock />
-        <AboutBlock />
-        <LocationBlock />
-        <EmailListBlock />
-      </motion.div>
-    </div>
-  );
-}

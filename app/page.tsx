@@ -9,6 +9,8 @@ import BentoHome from "@/components/BentoHome";
 
 export default async function Home() {
   const supabase = supabaseServer();
+  // const loggedInUser = await supabase.auth.getSession();
+  // const email = (loggedInUser.data.session?.user?.email as string) ?? "nothing";
   const loggedInUser = await supabase.auth.getUser();
   const email = (loggedInUser.data.user?.email as string) ?? "nothing";
 
@@ -22,8 +24,9 @@ export default async function Home() {
       },
       where: eq(user.email, email),
     })) ?? undefined;
+  console.log(data);
   return (
-    <div className="bg-secondary">
+    <div className="bg-primary">
       <BentoHome />
       <div className="flex flex-col divide-y-4">
         {/* <div className="flex flex-col space-y-2 bg-inherit p-6 text-center dark:bg-inherit">

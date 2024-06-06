@@ -7,7 +7,7 @@ export default function ChatLandingPage({
   params: { chatId?: string[] };
 }) {
   const chatId = params.chatId?.join("/");
-  console.log(chatId);
+  // console.log(chatId);
   return (
     <>
       <ChatPage />
