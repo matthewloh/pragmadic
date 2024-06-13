@@ -27,15 +27,15 @@ export default function ChatLayout({
 }>) {
   return (
     <div>
-      <header className="sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4">
+      {/* <header className="sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4">
         <h1 className="text-xl font-semibold">Playground</h1>
         <Button className="ml-auto gap-1.5 text-sm" size="sm" variant="outline">
-          {/* <ShareIcon className="size-3.5" /> */}
           Share
         </Button>
-      </header>
-      <div className="flex flex-row">
-        <ChatSidebar />
+      </header> */}
+
+      <div className="">
+        {/* <ChatSidebar /> */}
         {children}
       </div>
     </div>
