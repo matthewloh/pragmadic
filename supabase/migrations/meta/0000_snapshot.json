@@ -1,4 +1,6 @@
 {
+  "id": "1bcbe45f-f852-4d52-9d61-fdb201610478",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "6",
   "dialect": "postgresql",
   "tables": {
@@ -18,8 +20,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.balls": {
-      "name": "balls",
+    "public.chats": {
+      "name": "chats",
       "schema": "",
       "columns": {
         "id": {
@@ -31,36 +33,20 @@
         },
         "name": {
           "name": "name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "description": {
-          "name": "description",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": true,
-          "default": "gen_random_uuid()"
+          "default": "now()"
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "balls_user_id_user_id_fk": {
-          "name": "balls_user_id_user_id_fk",
-          "tableFrom": "balls",
-          "columnsFrom": ["user_id"],
-          "tableTo": "user",
-          "columnsTo": ["id"],
-          "onUpdate": "no action",
-          "onDelete": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
@@ -100,11 +86,71 @@
         "derantau_hub_hub_id_user_id_fk": {
           "name": "derantau_hub_hub_id_user_id_fk",
           "tableFrom": "derantau_hub",
-          "columnsFrom": ["hub_id"],
           "tableTo": "user",
-          "columnsTo": ["id"],
-          "onUpdate": "no action",
-          "onDelete": "no action"
+          "columnsFrom": [
+            "hub_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.messages": {
+      "name": "messages",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "chat_id": {
+          "name": "chat_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "messages_chat_id_chats_id_fk": {
+          "name": "messages_chat_id_chats_id_fk",
+          "tableFrom": "messages",
+          "tableTo": "chats",
+          "columnsFrom": [
+            "chat_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -152,12 +198,16 @@
         "user_id_users_id_fk": {
           "name": "user_id_users_id_fk",
           "tableFrom": "user",
-          "columnsFrom": ["id"],
           "tableTo": "users",
           "schemaTo": "auth",
-          "columnsTo": ["id"],
-          "onUpdate": "no action",
-          "onDelete": "cascade"
+          "columnsFrom": [
+            "id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -169,10 +219,8 @@
     "auth": "auth"
   },
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
-  },
-  "id": "58427583-4759-41ed-80ff-31439a822cd4",
-  "prevId": "00000000-0000-0000-0000-000000000000"
+    "tables": {}
+  }
 }

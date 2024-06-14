@@ -2,7 +2,6 @@
 
 import { supabaseServer } from "@/lib/supabase/server";
 import { db } from "@/db";
-import { balls } from "@/db/schema";
 
 export async function searchForThings() {
   const supabase = supabaseServer();
@@ -12,6 +11,4 @@ export async function searchForThings() {
     throw new Error("You must be logged in to search for things.");
   }
 
-  const rooms = await db?.select().from(balls);
-  return rooms;
 }

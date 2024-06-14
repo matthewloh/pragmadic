@@ -38,14 +38,24 @@ export const derantau_hub = pgTable("derantau_hub", {
     .references(() => user.id),
 });
 
-export const balls = pgTable("balls", {
-  id: uuid("id").primaryKey().notNull().defaultRandom(),
-  name: varchar("name", { length: 256 }),
-  description: text("description"),
-  user_id: uuid("user_id")
+export const chats = pgTable("chats", {
+  id: uuid("id").notNull().primaryKey().defaultRandom(),
+  name: text("name").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const messages = pgTable("messages", {
+  id: integer("id").notNull().primaryKey(),
+  chatId: uuid("chat_id")
     .notNull()
-    .references(() => user.id)
-    .default(sql`gen_random_uuid()`),
+    .defaultRandom()
+    .references(() => chats.id),
+  role: text("role", { enum: ["user", "assistant"] }).notNull(),
+  content: text("content").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export type User = typeof user.$inferSelect;
+export type Chat = typeof chats.$inferSelect;
+export type Message = typeof messages.$inferSelect;
+export type DerantauHub = typeof derantau_hub.$inferSelect;
