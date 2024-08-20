@@ -12,6 +12,7 @@ import { ollamaModel } from "@/app/server/ai/ollama";
 import { ReactNode } from "react";
 import { SystemMessage } from "@/components/chat/SystemMessage";
 import { z } from "zod";
+import { openaiModel } from "@/app/server/ai/openai";
 
 export interface ServerMessage {
   role: "user" | "assistant";
@@ -42,8 +43,8 @@ export async function continueConversation(
   const history = getMutableAIState<typeof AI>();
 
   const result = await streamUI({
-    // model: openai('gpt-3.5-turbo'),
-    model: ollamaModel,
+    model: openaiModel,
+    // model: ollamaModel,
     messages: [...history.get(), { role: "user", content: input }],
     text: ({ content, done }) => {
       if (done) {

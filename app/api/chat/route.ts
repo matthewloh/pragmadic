@@ -1,4 +1,5 @@
 import { ollamaModel } from "@/app/server/ai/ollama";
+import { openaiModel } from "@/app/server/ai/openai";
 import { openai } from "@ai-sdk/openai";
 import { StreamData, StreamingTextResponse, streamText } from "ai";
 
@@ -9,7 +10,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const result = await streamText({
-    model: ollamaModel,
+    model: openaiModel,
     messages,
   });
 
