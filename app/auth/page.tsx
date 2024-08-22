@@ -1,5 +1,8 @@
 "use client";
+import { LoginForm } from "@/components/login/LoginForm";
+import { SignUpForm } from "@/components/signup/SignUpForm";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { KeyRound } from "lucide-react";
 import { useSearchParams } from "next/navigation";
@@ -23,10 +26,14 @@ export default function Page() {
     <div className="flex h-screen w-full items-center justify-center">
       <div className="relative w-96 space-y-5 rounded-3xl border bg-slate-900 p-5">
         <div className="flex items-center gap-2">
-          <KeyRound />
-          <h1 className="text-2xl font-bold">Next + Supabase</h1>
+          <KeyRound className="text-primary" />
+          <h1 className="text-2xl font-bold text-primary">Next + Supabase</h1>
         </div>
         <p className="text-sm text-gray-300">Register/Sign In 🤥</p>
+        <Separator />
+        <LoginForm />
+        <SignUpForm />
+        <Separator />
 
         <div className="flex flex-col gap-4">
           <Button
